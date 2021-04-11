@@ -54,10 +54,12 @@ public class RepositoryMember {
         return this.em.createQuery("FROM Member", Member.class).getResultList();
     }
 
-    public List<GroupTrainings> listAllMemberGroupTrainingsById() {
-        String sql = "SELECT gt.name FROM GroupTrainings gt";
+    public List<GroupTrainings> listAllMemberGroupTrainings(int id) {
+        String sql = "FROM Member m WHERE m.memberId = :mId" +
+                     " INNER JOIN GroupTrainings gt ON m.memberId = gt.memberId";
 
         return this.em.createQuery(sql, GroupTrainings.class)
-                .getResultList();
+                .setParameter("mId",id).getResultList();
     }
+
 }

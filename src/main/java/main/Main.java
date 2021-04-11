@@ -12,27 +12,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-//        Member member = new Member();
-//        member.setFirstName("Sam");
-//        member.setLastName("Thompson");
-//        member.setWeight(186);
-//        member.setHeight(100);
-
         RepositoryMember rm = new RepositoryMember();
-        List<GroupTrainings> result = rm.listAllMemberGroupTrainingsById();
-        for(GroupTrainings grp: result) {
-            System.out.println(grp.toString());
+        List<GroupTrainings> result = rm.listAllMemberGroupTrainings(1);
+        for(GroupTrainings gtr: result) {
+            System.out.println(gtr.toString());
         }
-//        rm.addMember(member);
-
-//        Trainer trainer = new Trainer();
-//        trainer.setTrainerName("Claudia");
-//        trainer.setSalary(2800);
-//
-//        RepositoryTrainer rt = new RepositoryTrainer();
-//        rt.addTrainer(trainer);
-
-
 
     }
 }
